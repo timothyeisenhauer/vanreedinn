@@ -1,0 +1,76 @@
+---
+const menuCategories = [
+  {
+    name: "Wings",
+    items: [
+      { name: "10 Wings", price: "$16", desc: "Choose your sauce" },
+      { name: "20 Wings", price: "$30", desc: "Better value" },
+      { name: "50 Wings", price: "$70", desc: "Party size" },
+    ]
+  },
+  {
+    name: "Bar Favorites",
+    items: [
+      { name: "Cheesesteak", price: "$12", desc: "Classic Philly style" },
+      { name: "Burger", price: "$11", desc: "1/2 lb fresh beef" },
+      { name: "Crab Cakes", price: "$14", desc: "House-made recipe" },
+      { name: "Fries", price: "$5", desc: "Crispy & golden" },
+    ]
+  },
+  {
+    name: "Drinks",
+    items: [
+      { name: "Domestic Draft", price: "$4", desc: "Bud, Miller, Coors" },
+      { name: "Craft Beer", price: "$6", desc: "Rotating selection" },
+      { name: "Well Drinks", price: "$5", desc: "Mixed cocktails" },
+      { name: "Takeout 6-Pack", price: "$10+", desc: "To go only" },
+    ]
+  }
+];
+---
+
+<section id="menu" class="py-20 md:py-32 bg-[#2A1C0E]">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <span class="text-[#D4622A] font-semibold uppercase tracking-wider text-sm">What's Cooking</span>
+      <h2 class="font-display text-4xl md:text-6xl text-gold-gradient mt-2 mb-4">
+        OUR MENU
+      </h2>
+      <p class="text-[#F5F0E8]/70 text-lg">
+        Good food, cold drinks, fair prices. That's the Van Reed way.
+      </p>
+    </div>
+    
+    <!-- Menu Grid -->
+    <div class="space-y-12">
+      {menuCategories.map(category => (
+        <div class="bg-[#3D2914] rounded-2xl p-8 border border-[#D4A574]/20">
+          <h3 class="font-display text-3xl text-[#D4A574] mb-6 text-center border-b border-[#D4A574]/20 pb-4">
+            {category.name}
+          </h3>
+          <div class="grid sm:grid-cols-2 gap-4">
+            {category.items.map(item => (
+              <div class="flex justify-between items-start p-4 rounded-lg hover:bg-[#2A1C0E] transition-colors group">
+                <div>
+                  <h4 class="text-[#F5F0E8] font-semibold text-lg group-hover:text-[#E8C9A0] transition-colors">
+                    {item.name}
+                  </h4>
+                  <p class="text-[#F5F0E8]/50 text-sm">{item.desc}</p>
+                </div>
+                <span class="text-[#D4A574] font-display text-xl">{item.price}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Note -->
+    <div class="text-center mt-12 p-6 bg-[#D4622A]/10 rounded-xl border border-[#D4622A]/30">
+      <p class="text-[#F5F0E8]/80">
+        <span class="text-[#D4622A] font-semibold">Prices subject to change.</span> Call ahead for daily specials and wing night deals!
+      </p>
+    </div>
+  </div>
+</section>

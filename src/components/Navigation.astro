@@ -1,0 +1,86 @@
+---
+const navLinks = [
+  { href: '#home', label: 'Home' },
+  { href: '#wings', label: 'Our Wings' },
+  { href: '#features', label: 'Amenities' },
+  { href: '#reviews', label: 'Reviews' },
+  { href: '#menu', label: 'Menu' },
+  { href: '#visit', label: 'Visit Us' },
+];
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-[#2A1C0E]/95 backdrop-blur-md border-b border-[#D4A574]/20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="#home" class="flex items-center space-x-2">
+        <span class="font-display text-2xl text-gold-gradient">VAN REED INN</span>
+      </a>
+      
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center space-x-8">
+        {navLinks.map(link => (
+          <a 
+            href={link.href} 
+            class="text-[#F5F0E8]/80 hover:text-[#D4A574] transition-colors duration-200 text-sm font-medium uppercase tracking-wider"
+          >
+            {link.label}
+          </a>
+        ))}
+        <a 
+          href="tel:+14845094418" 
+          class="bg-[#D4622A] hover:bg-[#B83232] text-white px-4 py-2 rounded-md text-sm font-semibold transition-all duration-200 fire-glow"
+        >
+          Call Now
+        </a>
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <button 
+        id="mobile-menu-btn" 
+        class="md:hidden text-[#D4A574] p-2"
+        aria-label="Toggle menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-[#3D2914] border-t border-[#D4A574]/20">
+    <div class="px-4 py-4 space-y-3">
+      {navLinks.map(link => (
+        <a 
+          href={link.href} 
+          class="block text-[#F5F0E8]/80 hover:text-[#D4A574] transition-colors duration-200 text-sm font-medium uppercase tracking-wider py-2"
+        >
+          {link.label}
+        </a>
+      ))}
+      <a 
+        href="tel:+14845094418" 
+        class="block bg-[#D4622A] hover:bg-[#B83232] text-white px-4 py-3 rounded-md text-sm font-semibold text-center transition-all duration-200 mt-4"
+      >
+        Call (484) 509-4418
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+  
+  // Close menu on link click
+  menu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.add('hidden');
+    });
+  });
+</script>

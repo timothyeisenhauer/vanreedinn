@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+/* Custom fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-gold: #D4A574;
+  --color-gold-light: #E8C9A0;
+  --color-brown: #3D2914;
+  --color-brown-dark: #2A1C0E;
+  --color-cream: #F5F0E8;
+  --color-orange: #D4622A;
+  --color-red: #B83232;
+}
+
+@theme {
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --color-gold: #D4A574;
+  --color-gold-light: #E8C9A0;
+  --color-brown: #3D2914;
+  --color-brown-dark: #2A1C0E;
+  --color-cream: #F5F0E8;
+  --color-orange: #D4622A;
+  --color-red: #B83232;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-brown-dark);
+  color: var(--color-cream);
+}
+
+.font-display {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+/* Wing animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Smoke effect */
+@keyframes smoke {
+  0% { opacity: 0; transform: translateY(0) scale(1); }
+  50% { opacity: 0.6; }
+  100% { opacity: 0; transform: translateY(-40px) scale(1.5); }
+}
+
+.smoke-particle {
+  animation: smoke 2s ease-out infinite;
+}
+
+/* Gold gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #D4A574 0%, #E8C9A0 50%, #D4A574 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Fire glow for CTA buttons */
+.fire-glow {
+  box-shadow: 0 0 20px rgba(212, 98, 42, 0.4), 0 0 40px rgba(212, 98, 42, 0.2);
+  transition: all 0.3s ease;
+}
+
+.fire-glow:hover {
+  box-shadow: 0 0 30px rgba(212, 98, 42, 0.6), 0 0 60px rgba(212, 98, 42, 0.3);
+}
+
+/* Image hover zoom */
+.img-zoom {
+  transition: transform 0.5s ease;
+}
+
+.img-zoom:hover {
+  transform: scale(1.05);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-brown-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-light);
+}
