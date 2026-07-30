@@ -1,75 +1,271 @@
 ---
-const menuCategories = [
+const wingSauces = [
+  "Hot", "Mild", "BBQ", "Apple Vinegar", "Ranch", "Sweet Chili",
+  "Parmesan Pepper Corn", "Sweet Old Bay", "Honey Mustard", "Sweet & Hot",
+  "Chipotle Ranch", "Irish Pride", "Southwest", "Sriracha Sweet Chili",
+  "Cajun Dry Rub", "Cracked Out Hot", "Cracked Out BBQ",
+  "Van Reed Herb & Spice", "Old Bay"
+];
+
+const premiumFlavors = [
+  "Spicy Garlic", "Garlic Parmesan", "Lemon Pepper Dry Rub",
+  "Honey Tequila Mustard", "Honey Tequila BBQ", "Pineapple BBQ"
+];
+
+const appetizers = [
   {
-    name: "Wings",
-    items: [
-      { name: "10 Wings", price: "$16", desc: "Choose your sauce" },
-      { name: "20 Wings", price: "$30", desc: "Better value" },
-      { name: "50 Wings", price: "$70", desc: "Party size" },
-    ]
+    name: "The Van Reed Sampler",
+    price: "$16.99",
+    desc: "Choice of 4: buffalo chicken dip, spinach dip, pickle chips, fried shrimp, mozzarella sticks, jalapeño poppers, onion rings or boneless wings"
   },
   {
-    name: "Bar Favorites",
-    items: [
-      { name: "Cheesesteak", price: "$12", desc: "Classic Philly style" },
-      { name: "Burger", price: "$11", desc: "1/2 lb fresh beef" },
-      { name: "Crab Cakes", price: "$14", desc: "House-made recipe" },
-      { name: "Fries", price: "$5", desc: "Crispy & golden" },
-    ]
+    name: "Cheesy Bacon Tots or Fries",
+    price: "$7.99 / $11.99",
+    desc: "Tater tots or fresh-cut fries loaded with cheese sauce & bacon. Add chili: small $9.99, large $13.99"
+  },
+  { name: "Buffalo Chicken Dip", price: "$10.99", desc: "A blend of smoked chicken, buffalo sauce & cream cheese served with tortilla chips" },
+  { name: "Spinach Artichoke Dip", price: "$10.99", desc: "A delicious classic, served with tortilla chips" },
+  { name: "Fried Pickle Chips", price: "$9.99", desc: "Crispy pickle chips, breaded & deep fried" },
+  { name: "Mozzarella Sticks", price: "$9.99", desc: "Deep fried & served with marinara sauce" },
+  { name: "Jalapeño Poppers", price: "$9.99", desc: "6 breaded & deep fried jalapeños stuffed with cheddar cheese" },
+  { name: "Mushroom Chips", price: "$9.99", desc: "Thinly sliced mushrooms, deep fried & seasoned" },
+  { name: "Quesadilla", price: "$8.99", desc: "Flour tortilla stuffed with melted cheddar & fresh pico de gallo. Add chicken $10.99 · add beef $12.99" },
+  { name: "Nachos", price: "$9.99", desc: "Corn tortilla chips covered in nacho cheese with lettuce & pico de gallo. Add chili, smoked chicken or beef $13.99" },
+  { name: "German Soft Pretzel Bites", price: "$10.99", desc: "Bite-sized pieces served with cheese sauce & mustard" },
+  { name: "Chicken Tender & Fries Basket", price: "$10.99", desc: "4 deep fried chicken fingers, served with fresh-cut fries" },
+  { name: "Fried Shrimp & Fries Basket", price: "$12.99", desc: "5 breaded butterfly shrimp, served with fresh-cut fries" },
+  { name: "Dozen Steamed Shrimp", price: "$13.99", desc: "Peel & eat steamed shrimp" },
+  { name: "Steamed Clams", price: "$12.99", desc: "1 lb. steamed littleneck clams" },
+  { name: "Pizza", price: "$6.99", desc: "Served on a 7-inch pita bread. Toppings $1.00 each: pepperoni, mushrooms, bacon, onion, jalapeño" },
+];
+
+const macAndCheese = [
+  { name: "Original", price: "$12.99" },
+  { name: "Buffalo Chicken", price: "$15.49" },
+  { name: "Philly Cheese Steak", price: "$15.49" },
+  { name: "Pulled Pork", price: "$15.49" },
+  { name: "Crab Cake", price: "$18.49" },
+  { name: "Southwest Chicken", price: "$15.49" },
+];
+
+const foodPhotos = [
+  {
+    src: "/images/burger-bbq-bacon.jpg",
+    alt: "BBQ bacon burger with fresh-cut fries"
   },
   {
-    name: "Drinks",
-    items: [
-      { name: "Domestic Draft", price: "$4", desc: "Bud, Miller, Coors" },
-      { name: "Craft Beer", price: "$6", desc: "Rotating selection" },
-      { name: "Well Drinks", price: "$5", desc: "Mixed cocktails" },
-      { name: "Takeout 6-Pack", price: "$10+", desc: "To go only" },
-    ]
-  }
+    src: "/images/soup-chicken-rice.jpg",
+    alt: "Bowl of homemade chicken soup"
+  },
+  {
+    src: "/images/burger-cheddar.jpg",
+    alt: "Cheddar burger stacked with lettuce, tomato and onion"
+  },
 ];
 ---
 
 <section id="menu" class="py-20 md:py-32 bg-[#2A1C0E]">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
     <div class="text-center mb-16">
       <span class="text-[#D4622A] font-semibold uppercase tracking-wider text-sm">What's Cooking</span>
       <h2 class="font-display text-4xl md:text-6xl text-gold-gradient mt-2 mb-4">
-        OUR MENU
+        THE MENU
       </h2>
       <p class="text-[#F5F0E8]/70 text-lg">
         Good food, cold drinks, fair prices. That's the Van Reed way.
       </p>
     </div>
-    
-    <!-- Menu Grid -->
-    <div class="space-y-12">
-      {menuCategories.map(category => (
-        <div class="bg-[#3D2914] rounded-2xl p-8 border border-[#D4A574]/20">
-          <h3 class="font-display text-3xl text-[#D4A574] mb-6 text-center border-b border-[#D4A574]/20 pb-4">
-            {category.name}
-          </h3>
-          <div class="grid sm:grid-cols-2 gap-4">
-            {category.items.map(item => (
-              <div class="flex justify-between items-start p-4 rounded-lg hover:bg-[#2A1C0E] transition-colors group">
-                <div>
-                  <h4 class="text-[#F5F0E8] font-semibold text-lg group-hover:text-[#E8C9A0] transition-colors">
-                    {item.name}
-                  </h4>
-                  <p class="text-[#F5F0E8]/50 text-sm">{item.desc}</p>
-                </div>
-                <span class="text-[#D4A574] font-display text-xl">{item.price}</span>
-              </div>
-            ))}
+
+    <!-- Award Winning Wings -->
+    <div class="bg-gradient-to-br from-[#3D2914] to-[#2A1C0E] rounded-2xl p-8 md:p-12 border-2 border-[#D4A574]/40 mb-12 relative overflow-hidden">
+      <div class="absolute top-0 right-0 bg-[#D4622A] text-white text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-bl-xl">
+        Our Claim to Fame
+      </div>
+      <h3 class="font-display text-4xl md:text-5xl text-gold-gradient text-center mb-2">
+        <span aria-hidden="true">🔥</span> AWARD-WINNING WINGS <span aria-hidden="true">🔥</span>
+      </h3>
+      <p class="text-center text-[#E8C9A0] mb-8 uppercase tracking-wider text-sm font-semibold">
+        Smoked in-house & deep fried
+      </p>
+
+      <div class="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto mb-10">
+        <div class="bg-[#2A1C0E] rounded-xl p-6 text-center border border-[#D4A574]/20">
+          <h4 class="font-display text-2xl text-[#D4A574] mb-3">BONE-IN WINGS</h4>
+          <div class="flex justify-center gap-8">
+            <div>
+              <div class="text-3xl font-display text-[#F5F0E8]">$15.99</div>
+              <div class="text-[#F5F0E8]/50 text-sm">10 wings</div>
+            </div>
+            <div>
+              <div class="text-3xl font-display text-[#F5F0E8]">$8.49</div>
+              <div class="text-[#F5F0E8]/50 text-sm">5 wings</div>
+            </div>
           </div>
+        </div>
+        <div class="bg-[#2A1C0E] rounded-xl p-6 text-center border border-[#D4A574]/20">
+          <h4 class="font-display text-2xl text-[#D4A574] mb-3">BONELESS WINGS</h4>
+          <div class="flex justify-center gap-8">
+            <div>
+              <div class="text-3xl font-display text-[#F5F0E8]">$12.49</div>
+              <div class="text-[#F5F0E8]/50 text-sm">10 wings</div>
+            </div>
+            <div>
+              <div class="text-3xl font-display text-[#F5F0E8]">$6.49</div>
+              <div class="text-[#F5F0E8]/50 text-sm">5 wings</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sauces -->
+      <div class="mb-8">
+        <h4 class="font-display text-2xl text-[#E8C9A0] text-center mb-4">WING SAUCES</h4>
+        <div class="flex flex-wrap justify-center gap-2">
+          {wingSauces.map(sauce => (
+            <span class="bg-[#2A1C0E] border border-[#D4A574]/30 text-[#F5F0E8]/80 px-3 py-1.5 rounded-full text-sm hover:border-[#D4622A] hover:text-[#E8C9A0] transition-colors">
+              {sauce}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Premium Flavors -->
+      <div class="mb-6">
+        <h4 class="font-display text-2xl text-[#D4622A] text-center mb-1">PREMIUM FLAVORS</h4>
+        <p class="text-center text-[#F5F0E8]/50 text-sm mb-4">Add $1.00 per 5 wings</p>
+        <div class="flex flex-wrap justify-center gap-2">
+          {premiumFlavors.map(flavor => (
+            <span class="bg-[#D4622A]/15 border border-[#D4622A]/40 text-[#E8C9A0] px-3 py-1.5 rounded-full text-sm font-medium">
+              {flavor}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <p class="text-center text-[#F5F0E8]/50 text-sm">
+        Celery $1.00 · Additional bleu cheese or ranch 50¢
+      </p>
+    </div>
+
+    <!-- Food Photos -->
+    <div class="grid grid-cols-3 gap-4 mb-12">
+      {foodPhotos.map(photo => (
+        <div class="aspect-[3/2] rounded-xl overflow-hidden">
+          <img
+            src={photo.src}
+            alt={photo.alt}
+            loading="lazy"
+            decoding="async"
+            class="w-full h-full object-cover img-zoom"
+          />
         </div>
       ))}
     </div>
-    
+
+    <!-- Appetizers -->
+    <div class="bg-[#3D2914] rounded-2xl p-8 md:p-10 border border-[#D4A574]/20 mb-12">
+      <h3 class="font-display text-3xl text-[#D4A574] mb-8 text-center border-b border-[#D4A574]/20 pb-4">
+        APPETIZERS
+      </h3>
+      <div class="grid md:grid-cols-2 gap-x-10 gap-y-5">
+        {appetizers.map(item => (
+          <div class="flex justify-between items-start gap-4 group">
+            <div>
+              <h4 class="text-[#F5F0E8] font-semibold group-hover:text-[#E8C9A0] transition-colors">
+                {item.name}
+              </h4>
+              <p class="text-[#F5F0E8]/50 text-sm leading-snug">{item.desc}</p>
+            </div>
+            <span class="text-[#D4A574] font-display text-lg whitespace-nowrap">{item.price}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Entrees + Soup -->
+    <div class="grid lg:grid-cols-2 gap-8 mb-12">
+      <!-- Entrees -->
+      <div class="bg-[#3D2914] rounded-2xl p-8 border border-[#D4A574]/20">
+        <h3 class="font-display text-3xl text-[#D4A574] mb-6 text-center border-b border-[#D4A574]/20 pb-4">
+          ENTRÉES
+        </h3>
+        <div class="space-y-5">
+          <div class="flex justify-between items-start gap-4">
+            <div>
+              <h4 class="text-[#F5F0E8] font-semibold">BBQ Platter</h4>
+              <p class="text-[#F5F0E8]/50 text-sm">Pulled pork smothered in BBQ sauce, slow-smoked brisket & 4 smoked wings. Choice of wing flavor, served with smoked beans</p>
+            </div>
+            <span class="text-[#D4A574] font-display text-lg whitespace-nowrap">$20.99</span>
+          </div>
+          <div class="flex justify-between items-start gap-4">
+            <div>
+              <h4 class="text-[#F5F0E8] font-semibold">Crab Cakes</h4>
+              <p class="text-[#F5F0E8]/50 text-sm">Two homemade crab cakes lightly seared. Choice of one side</p>
+            </div>
+            <span class="text-[#D4A574] font-display text-lg whitespace-nowrap">$21.99</span>
+          </div>
+          <div>
+            <h4 class="text-[#F5F0E8] font-semibold">Homemade Mac & Cheese</h4>
+            <p class="text-[#F5F0E8]/50 text-sm mb-3">Creamy homemade cheese sauce & tender pasta</p>
+            <div class="grid grid-cols-2 gap-x-6 gap-y-2">
+              {macAndCheese.map(mac => (
+                <div class="flex justify-between items-center border-b border-[#D4A574]/10 pb-1">
+                  <span class="text-[#F5F0E8]/80 text-sm">{mac.name}</span>
+                  <span class="text-[#D4A574] font-display">{mac.price}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Soup -->
+      <div class="bg-[#3D2914] rounded-2xl p-8 border border-[#D4A574]/20 relative overflow-hidden">
+        <div class="absolute -right-8 top-8 rotate-45 bg-[#B83232] text-white text-xs font-bold uppercase tracking-wider px-10 py-1">
+          Award Winner
+        </div>
+        <h3 class="font-display text-3xl text-[#D4A574] mb-6 text-center border-b border-[#D4A574]/20 pb-4">
+          HOMEMADE SOUP
+        </h3>
+        <div class="space-y-6">
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <h4 class="text-[#F5F0E8] font-semibold">Soup of the Day</h4>
+              <span class="text-[#D4A574] font-display text-lg">Cup $5.99 · Bowl $6.99</span>
+            </div>
+            <p class="text-[#F5F0E8]/50 text-sm">Ask what's simmering today</p>
+          </div>
+          <div class="bg-[#2A1C0E] rounded-xl p-5 border border-[#B83232]/40">
+            <div class="flex justify-between items-center mb-1">
+              <h4 class="text-[#E8C9A0] font-semibold text-lg">Smoked Chili <span aria-hidden="true">🌶️</span></h4>
+              <span class="text-[#D4A574] font-display text-lg">Cup $6.99 · Bowl $7.99</span>
+            </div>
+            <p class="text-[#F5F0E8]/60 text-sm mb-2">
+              Our award-winning chili packs 5 savory meats: ground beef, bacon, chicken, pork & slow-smoked brisket
+            </p>
+            <p class="text-[#F5F0E8]/40 text-xs">Add cheese 50¢ · Add onion 25¢</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- More on the menu -->
+    <div class="text-center p-8 bg-[#3D2914]/60 rounded-2xl border border-[#D4A574]/20 mb-8">
+      <h3 class="font-display text-2xl text-[#E8C9A0] mb-2">AND THAT'S JUST THE FRONT OF THE MENU</h3>
+      <p class="text-[#F5F0E8]/70 max-w-2xl mx-auto">
+        Flip it over for ½-lb burgers, smoked brisket sandwiches, fresh salads and more —
+        ask for a menu at the bar or give us a call.
+      </p>
+    </div>
+
     <!-- Note -->
-    <div class="text-center mt-12 p-6 bg-[#D4622A]/10 rounded-xl border border-[#D4622A]/30">
-      <p class="text-[#F5F0E8]/80">
-        <span class="text-[#D4622A] font-semibold">Prices subject to change.</span> Call ahead for daily specials and wing night deals!
+    <div class="text-center p-6 bg-[#D4622A]/10 rounded-xl border border-[#D4622A]/30">
+      <p class="text-[#F5F0E8]/80 mb-2">
+        <span class="text-[#D4622A] font-semibold">Prices subject to change.</span> Call ahead for daily specials and takeout orders: <a href="tel:+14845094418" class="text-[#D4A574] hover:text-[#E8C9A0] font-semibold transition-colors">(484) 509-4418</a>
+      </p>
+      <p class="text-[#F5F0E8]/40 text-xs max-w-3xl mx-auto">
+        Consuming raw or undercooked meats, poultry, seafood, shellfish or eggs may increase your risk of a food-borne illness, especially for certain medical conditions. Please notify your server of any food allergies.
       </p>
     </div>
   </div>

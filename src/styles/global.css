@@ -1,8 +1,5 @@
 @import "tailwindcss";
 
-/* Custom fonts */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
-
 :root {
   --color-gold: #D4A574;
   --color-gold-light: #E8C9A0;

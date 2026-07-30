@@ -1,47 +1,17 @@
 ---
 const reviews = [
   {
-    name: "Chris L",
-    rating: 5,
-    text: "The person who helped us and our group was super nice and very accommodating even though she was extremely busy taking care of everyone!! The wings were recommended to me and they did not disappoint!! Overall it was a great time.",
-    time: "4 months ago",
-    highlight: "Wings did not disappoint!"
+    text: "Great fall off the bone smoked wings with lots of flavors to pick from.",
+    source: "Google review",
   },
   {
-    name: "Judy S",
-    rating: 5,
-    text: "Food was delicious. I had their famous chili and it did not disappoint. My husband had the cheese steak and fries, both were so delicious. The place is a little drab, but our waitress was so friendly and attentive. We had a great lunch with friends. No one rushed us. And the portions were very generous.",
-    time: "6 months ago",
-    highlight: "Famous chili & generous portions"
+    text: "Wings are excellent! Brisket is very tender.",
+    source: "Google review",
   },
   {
-    name: "Local Guide",
-    rating: 5,
-    text: "We always saw the sign for 'best wings in Berks' and it lives up to it! The wings are smoked first, then fried with sauce — gives them such a distinctive flavor. Try the spicy garlic or Irish Pride. Monday wing night is the best in the area!",
-    time: "TripAdvisor",
-    highlight: "Lives up to the 'Best Wings in Berks' sign"
+    text: "They advertise best wings and they definitely top 3.",
+    source: "Google review",
   },
-  {
-    name: "Berks County Eats",
-    rating: 5,
-    text: "The wings are the best thing on the plate here. Smoky, crispy, nearly perfect. The meaty wings get a hit of smoke before being flash-fried, then tossed in your choice of around 15 sauces. It's what keeps people coming back.",
-    time: "Food Blog Review",
-    highlight: "Smoky, crispy, nearly perfect"
-  },
-  {
-    name: "Mike R",
-    rating: 5,
-    text: "Great little neighborhood bar. Nice small place with pool table and darts. The atmosphere is chill, the beer is cold, and the wings are definitely worth the trip. Already planning to come back next week!",
-    time: "2 months ago",
-    highlight: "Worth the trip!"
-  },
-  {
-    name: "Sarah K",
-    rating: 4,
-    text: "Better atmosphere, trivia, live music, meaningful outdoor seating. The wings are legitimately amazing — the smoking process makes all the difference. Try the chipotle ranch!",
-    time: "3 months ago",
-    highlight: "Legitimately amazing"
-  }
 ];
 ---
 
@@ -56,59 +26,52 @@ const reviews = [
       <div class="flex items-center justify-center gap-4 mt-6">
         <div class="flex items-center gap-1">
           {[...Array(5)].map(() => (
-            <svg class="w-6 h-6 text-[#D4A574]" fill="currentColor" viewBox="0 0 20 20">
+            <svg class="w-6 h-6 text-[#D4A574]" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
           ))}
         </div>
         <span class="text-2xl font-bold text-[#F5F0E8]">4.3</span>
-        <span class="text-[#F5F0E8]/60">out of 5</span>
+        <span class="text-[#F5F0E8]/60">on Google</span>
       </div>
-      <p class="text-[#F5F0E8]/60 mt-2">Based on 488+ Google Reviews</p>
+      <p class="text-[#F5F0E8]/60 mt-2">Based on 488 Google reviews</p>
     </div>
-    
+
+    <!-- Featured quote -->
+    <div class="max-w-3xl mx-auto text-center mb-14">
+      <blockquote class="text-2xl md:text-3xl text-[#E8C9A0] font-light italic leading-snug">
+        "The wings are smoked, and the flavor from the smoker shines through it all."
+      </blockquote>
+      <cite class="block mt-4 text-[#D4A574] font-semibold not-italic">
+        — <a href="https://berkscountyeats.com/post/van-reed-inn/" target="_blank" rel="noopener noreferrer" class="hover:text-[#E8C9A0] transition-colors underline underline-offset-4">Berks County Eats</a>, local food blog
+      </cite>
+    </div>
+
     <!-- Reviews Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid md:grid-cols-3 gap-6">
       {reviews.map(review => (
         <div class="bg-[#2A1C0E] rounded-xl p-6 border border-[#D4A574]/10 hover:border-[#D4A574]/30 transition-all duration-300 flex flex-col">
-          <!-- Stars -->
-          <div class="flex items-center gap-1 mb-3">
-            {[...Array(review.rating)].map(() => (
-              <svg class="w-5 h-5 text-[#D4A574]" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-            ))}
-          </div>
-          
-          <!-- Highlight -->
-          <div class="bg-[#D4622A]/10 border-l-4 border-[#D4622A] rounded-r-lg p-3 mb-3">
-            <p class="text-[#E8C9A0] font-medium text-sm italic">"{review.highlight}"</p>
-          </div>
-          
-          <!-- Review Text -->
-          <p class="text-[#F5F0E8]/80 text-sm leading-relaxed flex-1">
-            {review.text.length > 200 ? review.text.slice(0, 200) + '...' : review.text}
+          <span class="text-4xl text-[#D4622A]/60 font-display leading-none" aria-hidden="true">"</span>
+          <p class="text-[#F5F0E8]/80 leading-relaxed flex-1 -mt-2">
+            {review.text}
           </p>
-          
-          <!-- Author -->
-          <div class="mt-4 pt-4 border-t border-[#D4A574]/10 flex items-center justify-between">
-            <span class="text-[#D4A574] font-semibold">{review.name}</span>
-            <span class="text-[#F5F0E8]/40 text-sm">{review.time}</span>
+          <div class="mt-4 pt-4 border-t border-[#D4A574]/10">
+            <span class="text-[#F5F0E8]/40 text-sm">{review.source}</span>
           </div>
         </div>
       ))}
     </div>
-    
+
     <!-- CTA -->
     <div class="text-center mt-12">
-      <a 
-        href="https://g.page/r/Cd4cQR7Q1x9_EAE/review" 
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=The+Van+Reed+Inn+2707+Bernville+Rd+Reading+PA+19605"
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center gap-2 text-[#D4A574] hover:text-[#E8C9A0] transition-colors font-semibold"
       >
         <span>Read More Reviews on Google</span>
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
         </svg>
       </a>

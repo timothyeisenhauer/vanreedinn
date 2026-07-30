@@ -1,11 +1,18 @@
 ---
-const wingFlavors = [
-  { name: "Spicy Garlic", heat: "Medium", desc: "Our signature blend" },
-  { name: "Chipotle Ranch", heat: "Mild", desc: "Smoky & creamy" },
-  { name: "Lemon Garlic", heat: "Mild", desc: "Zesty perfection" },
-  { name: "Irish Pride", heat: "Hot", desc: "Spicy garlic BBQ" },
-  { name: "Buffalo", heat: "Medium", desc: "Classic heat" },
-  { name: "Honey BBQ", heat: "Mild", desc: "Sweet & tangy" },
+const premiumFlavors = [
+  { name: "Spicy Garlic", desc: "The local legend", img: "/images/wings-buffalo-basket.jpg" },
+  { name: "Garlic Parmesan", desc: "Rich & savory", img: "/images/wings-garlic-parm.jpg" },
+  { name: "Lemon Pepper Dry Rub", desc: "Zesty, no mess", img: "/images/wings-crispy-fried.jpg" },
+  { name: "Honey Tequila Mustard", desc: "Sweet with a kick", img: "/images/wings-takeout.jpg" },
+  { name: "Honey Tequila BBQ", desc: "Smoky & sticky", img: "/images/wings-sauced.jpg" },
+  { name: "Pineapple BBQ", desc: "Sweet heat, island style", img: "/images/wings-white-drizzle.jpg" },
+];
+
+const wingGallery = [
+  { src: "/images/wings-buffalo-basket.jpg", alt: "Basket of our saucy buffalo wings" },
+  { src: "/images/wings-white-drizzle.jpg", alt: "Smoked wings finished with garlic parm drizzle" },
+  { src: "/images/wings-crispy-fried.jpg", alt: "Crispy golden wings straight from the fryer" },
+  { src: "/images/wings-beer.jpg", alt: "Wings and a cold beer at the bar" },
 ];
 ---
 
@@ -18,44 +25,77 @@ const wingFlavors = [
         LEGENDARY WINGS
       </h2>
       <p class="text-[#F5F0E8]/70 text-lg max-w-2xl mx-auto">
-        Smoked low and slow, then fried to crispy perfection. 
-        Tossed in your choice of 15+ house-made sauces.
+        Jumbo wings smoked in-house, then deep fried to crispy perfection.
+        19 signature sauces plus 6 premium flavors — 25 ways to get messy.
       </p>
     </div>
-    
+
     <!-- Wing Process -->
-    <div class="grid md:grid-cols-3 gap-8 mb-20">
+    <div class="grid md:grid-cols-3 gap-8 mb-16">
       <div class="text-center group">
         <div class="w-20 h-20 mx-auto mb-4 bg-[#2A1C0E] rounded-full flex items-center justify-center border-2 border-[#D4622A]/30 group-hover:border-[#D4622A] transition-colors">
-          <span class="text-3xl">🔥</span>
+          <span class="text-3xl" aria-hidden="true">🔥</span>
         </div>
         <h3 class="font-display text-2xl text-[#D4A574] mb-2">SMOKED</h3>
-        <p class="text-[#F5F0E8]/60">Hours over hickory wood for that unmistakable smoky flavor</p>
+        <p class="text-[#F5F0E8]/60">Slow-smoked in-house for deep, real barbecue flavor</p>
       </div>
       <div class="text-center group">
         <div class="w-20 h-20 mx-auto mb-4 bg-[#2A1C0E] rounded-full flex items-center justify-center border-2 border-[#D4622A]/30 group-hover:border-[#D4622A] transition-colors">
-          <span class="text-3xl">⚡</span>
+          <span class="text-3xl" aria-hidden="true">⚡</span>
         </div>
         <h3 class="font-display text-2xl text-[#D4A574] mb-2">FRIED</h3>
-        <p class="text-[#F5F0E8]/60">Flash-fried to golden perfection for the ultimate crispy skin</p>
+        <p class="text-[#F5F0E8]/60">Deep fried to order for the ultimate crispy skin</p>
       </div>
       <div class="text-center group">
         <div class="w-20 h-20 mx-auto mb-4 bg-[#2A1C0E] rounded-full flex items-center justify-center border-2 border-[#D4622A]/30 group-hover:border-[#D4622A] transition-colors">
-          <span class="text-3xl">💧</span>
+          <span class="text-3xl" aria-hidden="true">💧</span>
         </div>
         <h3 class="font-display text-2xl text-[#D4A574] mb-2">SAUCED</h3>
-        <p class="text-[#F5F0E8]/60">Tossed in your favorite house-made sauce while hot</p>
+        <p class="text-[#F5F0E8]/60">Tossed while hot in your choice of 25 sauces & flavors</p>
       </div>
     </div>
-    
-    <!-- Flavor Grid -->
+
+    <!-- Wings Photo Banner -->
+    <div class="rounded-2xl overflow-hidden mb-4 border border-[#D4A574]/20">
+      <img
+        src="/images/wings-garlic-parm.jpg"
+        alt="Our garlic parmesan smoked wings up close"
+        loading="lazy"
+        decoding="async"
+        class="w-full h-64 md:h-80 object-cover img-zoom"
+      />
+    </div>
+
+    <!-- Wing Gallery -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+      {wingGallery.map(photo => (
+        <div class="aspect-square rounded-xl overflow-hidden border border-[#D4A574]/10">
+          <img
+            src={photo.src}
+            alt={photo.alt}
+            loading="lazy"
+            decoding="async"
+            class="w-full h-full object-cover img-zoom"
+          />
+        </div>
+      ))}
+    </div>
+
+    <!-- Premium Flavor Grid -->
     <div class="bg-[#2A1C0E] rounded-2xl p-8 md:p-12 border border-[#D4A574]/20">
-      <h3 class="font-display text-3xl text-center text-[#E8C9A0] mb-8">SIGNATURE FLAVORS</h3>
+      <h3 class="font-display text-3xl text-center text-[#E8C9A0] mb-2">PREMIUM FLAVORS</h3>
+      <p class="text-center text-[#F5F0E8]/50 mb-8 text-sm">Add $1.00 per 5 wings — worth every penny</p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {wingFlavors.map(flavor => (
+        {premiumFlavors.map(flavor => (
           <div class="flex items-center gap-4 p-4 bg-[#3D2914] rounded-lg hover:bg-[#3D2914]/80 transition-colors group">
-            <div class="w-12 h-12 bg-[#D4622A]/20 rounded-full flex items-center justify-center flex-shrink-0">
-              <span class="text-2xl">🍗</span>
+            <div class="w-14 h-14 rounded-full overflow-hidden flex-shrink-0 border-2 border-[#D4622A]/40 group-hover:border-[#D4622A] transition-colors">
+              <img
+                src={flavor.img}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover"
+              />
             </div>
             <div class="flex-1">
               <h4 class="font-display text-xl text-[#F5F0E8] group-hover:text-[#D4A574] transition-colors">
@@ -63,36 +103,30 @@ const wingFlavors = [
               </h4>
               <p class="text-[#F5F0E8]/50 text-sm">{flavor.desc}</p>
             </div>
-            <span class={`
-              px-3 py-1 rounded-full text-xs font-semibold
-              ${flavor.heat === 'Mild' ? 'bg-green-500/20 text-green-400' : ''}
-              ${flavor.heat === 'Medium' ? 'bg-yellow-500/20 text-yellow-400' : ''}
-              ${flavor.heat === 'Hot' ? 'bg-red-500/20 text-red-400' : ''}
-            `}>
-              {flavor.heat}
-            </span>
           </div>
         ))}
       </div>
-      <p class="text-center text-[#F5F0E8]/50 mt-6 text-sm">+ 9 more rotating seasonal flavors</p>
+      <p class="text-center text-[#F5F0E8]/50 mt-6 text-sm">
+        Plus 19 classic sauces from Hot to Old Bay — see the full list in <a href="#menu" class="text-[#D4A574] hover:text-[#E8C9A0] underline underline-offset-2 transition-colors">the menu</a>
+      </p>
     </div>
-    
+
     <!-- Awards/Recognition -->
     <div class="mt-16 grid md:grid-cols-3 gap-8 text-center">
       <div class="p-6 border border-[#D4A574]/20 rounded-xl">
-        <div class="text-4xl mb-2">🏆</div>
-        <h4 class="font-display text-xl text-[#D4A574]">"Best Wings in Berks"</h4>
-        <p class="text-[#F5F0E8]/60 text-sm mt-1">What locals have been saying for years</p>
+        <div class="text-4xl mb-2" aria-hidden="true">🏆</div>
+        <h4 class="font-display text-xl text-[#D4A574]">Award-Winning Wings</h4>
+        <p class="text-[#F5F0E8]/60 text-sm mt-1">And award-winning smoked chili to match</p>
       </div>
       <div class="p-6 border border-[#D4A574]/20 rounded-xl">
-        <div class="text-4xl mb-2">⭐</div>
-        <h4 class="font-display text-xl text-[#D4A574]">4.3 Stars</h4>
-        <p class="text-[#F5F0E8]/60 text-sm mt-1">488+ Google Reviews</p>
+        <div class="text-4xl mb-2" aria-hidden="true">⭐</div>
+        <h4 class="font-display text-xl text-[#D4A574]">4.3 Stars on Google</h4>
+        <p class="text-[#F5F0E8]/60 text-sm mt-1">488 Google reviews and counting</p>
       </div>
       <div class="p-6 border border-[#D4A574]/20 rounded-xl">
-        <div class="text-4xl mb-2">🍺</div>
+        <div class="text-4xl mb-2" aria-hidden="true">🍺</div>
         <h4 class="font-display text-xl text-[#D4A574]">Perfect Pairing</h4>
-        <p class="text-[#F5F0E8]/60 text-sm mt-1">Cold drafts & takeout beer available</p>
+        <p class="text-[#F5F0E8]/60 text-sm mt-1">Cold drafts at the bar & 6-packs to go</p>
       </div>
     </div>
   </div>

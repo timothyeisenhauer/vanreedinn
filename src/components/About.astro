@@ -1,0 +1,69 @@
+---
+const stats = [
+  { value: "1900s", label: "Roadhouse roots" },
+  { value: "1940s", label: "At our current home" },
+  { value: "2015", label: "Renovated & reborn" },
+  { value: "25", label: "Wing sauces & flavors" },
+];
+---
+
+<section id="about" class="py-20 md:py-32 bg-[#2A1C0E]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <span class="text-[#D4622A] font-semibold uppercase tracking-wider text-sm">Our Story</span>
+      <h2 class="font-display text-4xl md:text-6xl text-gold-gradient mt-2 mb-4">
+        ABOUT THE VAN REED INN
+      </h2>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+      <!-- Copy -->
+      <div class="space-y-5 text-[#F5F0E8]/80 leading-relaxed text-lg">
+        <p>
+          The Van Reed Inn is a true Berks County original. This old roadhouse traces its
+          roots to the early 1900s and has stood at its current home on Bernville Road
+          since the 1940s, serving generations of Reading and Leesport locals. In 2015 it
+          was completely renovated and reopened, and today the Van Reed is what every
+          neighborhood bar should be — friendly faces, cold beer, and food that's far
+          better than it has any right to be.
+        </p>
+        <p>
+          Everything here is made fresh, in-house. The smoker is the heart of the kitchen:
+          pork, brisket, and our famous jumbo wings all get their time in the smoke before
+          they hit your plate. The wings — smoked low and slow, then deep fried crispy and
+          tossed in your pick of 19 house sauces or 6 premium flavors — are why folks
+          around here call them the best wings in Berks County. The award-winning smoked
+          chili, loaded with five savory meats, has its own loyal following.
+        </p>
+        <p>
+          Just up the road from Reading Regional Airport on Route 183, we're an easy stop
+          whether you're grabbing lunch, catching the game, shooting a round of pool, or
+          picking up wings and a 6-pack to go. Dine in, take out, or pull up a stool and
+          stay awhile — at the Van Reed, you're a regular by your second visit.
+        </p>
+      </div>
+
+      <!-- Image -->
+      <div class="rounded-2xl overflow-hidden border border-[#D4A574]/20">
+        <img
+          src="/images/bar-interior.jpg"
+          alt="Our bar with the full tap lineup and game on the TVs"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-full object-cover img-zoom"
+        />
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      {stats.map(stat => (
+        <div class="text-center p-6 bg-[#3D2914] rounded-xl border border-[#D4A574]/20">
+          <div class="font-display text-4xl text-gold-gradient mb-1">{stat.value}</div>
+          <div class="text-[#F5F0E8]/60 text-sm">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

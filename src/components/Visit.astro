@@ -6,7 +6,7 @@ const hours = [
   { day: "Thursday", time: "11:00 AM - 2:00 AM" },
   { day: "Friday", time: "11:00 AM - 2:00 AM" },
   { day: "Saturday", time: "11:00 AM - 2:00 AM" },
-  { day: "Sunday", time: "11:00 AM - 12:00 AM" },
+  { day: "Sunday", time: "11:00 AM - 2:00 AM" },
 ];
 ---
 
@@ -38,10 +38,13 @@ const hours = [
             {hours.map(({ day, time }) => (
               <div class="flex justify-between items-center py-2 border-b border-[#D4A574]/10 last:border-0">
                 <span class="text-[#F5F0E8]/80">{day}</span>
-                <span class="text-[#E8C9A0] font-medium">{time}</span>
+                <span class={time === "Closed" ? "text-[#F5F0E8]/40 font-medium" : "text-[#E8C9A0] font-medium"}>{time}</span>
               </div>
             ))}
           </div>
+          <p class="text-[#F5F0E8]/40 text-sm mt-4">
+            Hours can vary on holidays — give us a ring before you head over.
+          </p>
         </div>
         
         <!-- Contact -->
