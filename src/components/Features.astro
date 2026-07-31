@@ -16,9 +16,19 @@ const features = [
     description: "Test your aim with our dart boards — perfect for friendly competition"
   },
   {
+    icon: "🎵",
+    title: "TouchTunes Jukebox",
+    description: "You control the soundtrack — queue up your songs at the jukebox or right from the TouchTunes app on your phone"
+  },
+  {
     icon: "🍺",
     title: "Cold Beer To Go",
     description: "Takeout beer available — grab a 6-pack or case on your way home"
+  },
+  {
+    icon: "🎉",
+    title: "Catering & Parties",
+    description: "Feeding a crowd? We're known for it — wings by the bunch, smoked brisket, fresh-cut fries and your pick of sauces. Anything on the menu, made party-size"
   },
   {
     icon: "📺",
@@ -28,7 +38,7 @@ const features = [
   {
     icon: "🤝",
     title: "Local Vibe",
-    description: "A true neighborhood dive where everybody knows your name"
+    description: "A true neighborhood tavern where everybody knows your name"
   }
 ];
 ---
@@ -53,7 +63,7 @@ const features = [
     </div>
     
     <!-- Features Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
       {features.map(feature => (
         <div class="group p-6 bg-[#3D2914] rounded-xl border border-[#D4A574]/10 hover:border-[#D4A574]/30 transition-all duration-300 hover:-translate-y-1">
           <div class="w-14 h-14 bg-[#D4622A]/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#D4622A]/20 transition-colors">
