@@ -1,15 +1,18 @@
 ---
 const reviews = [
   {
-    text: "Great fall off the bone smoked wings with lots of flavors to pick from.",
+    text: "I've done a lot of looking for good wings in Berks, and this is the best place for them by far. They smoke the wings before frying them — most places bake them if they even do that — and it makes all the difference.",
+    name: "Mat W.",
     source: "Google review",
   },
   {
-    text: "Wings are excellent! Brisket is very tender.",
+    text: "I posted on FB asking for the best wings place in Berks. Van Reed was by far listed the most. My first time there was a hit for sure. They had a delicious IPA selection and the wings are AMAZING! I really like how they smoke them.",
+    name: "Eric W.",
     source: "Google review",
   },
   {
-    text: "They advertise best wings and they definitely top 3.",
+    text: "The food and service have been on point! Wings are always a 10/10 and any burger we order is perfection. Highly recommend to anyone looking for a good bite to eat. Love this local spot!!!",
+    name: "Savannah K.",
     source: "Google review",
   },
 ];
@@ -55,15 +58,21 @@ const reviews = [
           <p class="text-[#F5F0E8]/80 leading-relaxed flex-1 -mt-2">
             {review.text}
           </p>
-          <div class="mt-4 pt-4 border-t border-[#D4A574]/10">
+          <div class="mt-4 pt-4 border-t border-[#D4A574]/10 flex items-center justify-between">
+            <span class="text-[#D4A574] font-semibold">{review.name}</span>
             <span class="text-[#F5F0E8]/40 text-sm">{review.source}</span>
           </div>
         </div>
       ))}
     </div>
 
+    <!-- Short & sweet -->
+    <p class="text-center mt-12 font-display text-2xl md:text-3xl text-[#E8C9A0]">
+      "Best. Wings. Ever. Nuf said." <span class="text-[#F5F0E8]/40 text-lg align-middle">— Sam K., Google review</span>
+    </p>
+
     <!-- CTA -->
-    <div class="text-center mt-12">
+    <div class="text-center mt-8">
       <a
         href="https://www.google.com/maps/search/?api=1&query=The+Van+Reed+Inn+2707+Bernville+Rd+Reading+PA+19605"
         target="_blank"
