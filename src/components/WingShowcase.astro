@@ -1,18 +1,28 @@
 ---
+import { Image } from 'astro:assets';
+import wingsBaskets from '../assets/images/wings-baskets.jpg';
+import wingsBuffaloBasket from '../assets/images/wings-buffalo-basket.jpg';
+import wingsGarlicParm from '../assets/images/wings-garlic-parm.jpg';
+import wingsCrispyFried from '../assets/images/wings-crispy-fried.jpg';
+import wingsTakeout from '../assets/images/wings-takeout.jpg';
+import wingsSauced from '../assets/images/wings-sauced.jpg';
+import wingsWhiteDrizzle from '../assets/images/wings-white-drizzle.jpg';
+import wingsBeer from '../assets/images/wings-beer.jpg';
+
 const premiumFlavors = [
-  { name: "Spicy Garlic", desc: "The local legend", img: "/images/wings-buffalo-basket.jpg" },
-  { name: "Garlic Parmesan", desc: "Rich & savory", img: "/images/wings-garlic-parm.jpg" },
-  { name: "Lemon Pepper Dry Rub", desc: "Zesty, no mess", img: "/images/wings-crispy-fried.jpg" },
-  { name: "Honey Tequila Mustard", desc: "Sweet with a kick", img: "/images/wings-takeout.jpg" },
-  { name: "Honey Tequila BBQ", desc: "Smoky & sticky", img: "/images/wings-sauced.jpg" },
-  { name: "Pineapple BBQ", desc: "Sweet heat, island style", img: "/images/wings-white-drizzle.jpg" },
+  { name: "Spicy Garlic", desc: "The local legend", img: wingsBuffaloBasket },
+  { name: "Garlic Parmesan", desc: "Rich & savory", img: wingsGarlicParm },
+  { name: "Lemon Pepper Dry Rub", desc: "Zesty, no mess", img: wingsCrispyFried },
+  { name: "Honey Tequila Mustard", desc: "Sweet with a kick", img: wingsTakeout },
+  { name: "Honey Tequila BBQ", desc: "Smoky & sticky", img: wingsSauced },
+  { name: "Pineapple BBQ", desc: "Sweet heat, island style", img: wingsWhiteDrizzle },
 ];
 
 const wingGallery = [
-  { src: "/images/wings-buffalo-basket.jpg", alt: "Basket of our saucy buffalo wings" },
-  { src: "/images/wings-white-drizzle.jpg", alt: "Smoked wings finished with garlic parm drizzle" },
-  { src: "/images/wings-crispy-fried.jpg", alt: "Crispy golden wings straight from the fryer" },
-  { src: "/images/wings-beer.jpg", alt: "Wings and a cold beer at the bar" },
+  { src: wingsBuffaloBasket, alt: "Basket of our saucy buffalo wings" },
+  { src: wingsWhiteDrizzle, alt: "Smoked wings finished with garlic parm drizzle" },
+  { src: wingsCrispyFried, alt: "Crispy golden wings straight from the fryer" },
+  { src: wingsBeer, alt: "Wings and a cold beer at the bar" },
 ];
 ---
 
@@ -57,11 +67,13 @@ const wingGallery = [
 
     <!-- Wings Photo Banner -->
     <div class="rounded-2xl overflow-hidden mb-4 border border-[#D4A574]/20">
-      <img
-        src="/images/wings-baskets.jpg"
+      <Image
+        src={wingsBaskets}
         alt="Baskets of our smoked-then-fried wings"
-        loading="lazy"
-        decoding="async"
+        widths={[768, 1280, 1920]}
+        sizes="(min-width: 1280px) 1216px, 100vw"
+        format="webp"
+        quality={80}
         class="w-full h-auto img-zoom"
       />
     </div>
@@ -70,11 +82,13 @@ const wingGallery = [
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
       {wingGallery.map(photo => (
         <div class="aspect-square rounded-xl overflow-hidden border border-[#D4A574]/10">
-          <img
+          <Image
             src={photo.src}
             alt={photo.alt}
-            loading="lazy"
-            decoding="async"
+            widths={[320, 640]}
+            sizes="(min-width: 768px) 25vw, 50vw"
+            format="webp"
+            quality={80}
             class="w-full h-full object-cover img-zoom"
           />
         </div>
@@ -89,11 +103,13 @@ const wingGallery = [
         {premiumFlavors.map(flavor => (
           <div class="flex items-center gap-4 p-4 bg-[#3D2914] rounded-lg hover:bg-[#3D2914]/80 transition-colors group">
             <div class="w-14 h-14 rounded-full overflow-hidden flex-shrink-0 border-2 border-[#D4622A]/40 group-hover:border-[#D4622A] transition-colors">
-              <img
+              <Image
                 src={flavor.img}
                 alt=""
-                loading="lazy"
-                decoding="async"
+                width={112}
+                height={112}
+                format="webp"
+                quality={80}
                 class="w-full h-full object-cover"
               />
             </div>

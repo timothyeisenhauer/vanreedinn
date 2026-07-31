@@ -1,4 +1,9 @@
 ---
+import { Image } from 'astro:assets';
+import burgerBbqBacon from '../assets/images/burger-bbq-bacon.jpg';
+import soupChickenRice from '../assets/images/soup-chicken-rice.jpg';
+import burgerCheddar from '../assets/images/burger-cheddar.jpg';
+
 const wingSauces = [
   "Hot", "Mild", "BBQ", "Apple Vinegar", "Ranch", "Sweet Chili",
   "Parmesan Pepper Corn", "Sweet Old Bay", "Honey Mustard", "Sweet & Hot",
@@ -50,15 +55,15 @@ const macAndCheese = [
 
 const foodPhotos = [
   {
-    src: "/images/burger-bbq-bacon.jpg",
+    src: burgerBbqBacon,
     alt: "BBQ bacon burger with fresh-cut fries"
   },
   {
-    src: "/images/soup-chicken-rice.jpg",
+    src: soupChickenRice,
     alt: "Bowl of homemade chicken soup"
   },
   {
-    src: "/images/burger-cheddar.jpg",
+    src: burgerCheddar,
     alt: "Cheddar burger stacked with lettuce, tomato and onion"
   },
 ];
@@ -152,11 +157,13 @@ const foodPhotos = [
     <div class="grid grid-cols-3 gap-4 mb-12">
       {foodPhotos.map(photo => (
         <div class="aspect-[3/2] rounded-xl overflow-hidden">
-          <img
+          <Image
             src={photo.src}
             alt={photo.alt}
-            loading="lazy"
-            decoding="async"
+            widths={[400, 800]}
+            sizes="33vw"
+            format="webp"
+            quality={80}
             class="w-full h-full object-cover img-zoom"
           />
         </div>

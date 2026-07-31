@@ -1,4 +1,17 @@
 ---
+import { Image } from 'astro:assets';
+import vanReedInnSign from '../assets/images/van-reed-inn-sign.jpg';
+import margarita from '../assets/images/margarita.jpg';
+import burgerPickles from '../assets/images/burger-pickles.jpg';
+import burgerPlatterFries from '../assets/images/burger-platter-fries.jpg';
+
+const galleryPhotos = [
+  { src: vanReedInnSign, alt: "The Van Reed Inn sign out front" },
+  { src: margarita, alt: "Fresh margarita on the bar" },
+  { src: burgerPickles, alt: "Cheeseburger with pickles and fresh-cut fries" },
+  { src: burgerPlatterFries, alt: "Burger and fries platter on the table" },
+];
+
 const features = [
   {
     icon: "🎰",
@@ -79,42 +92,19 @@ const features = [
     <div class="mt-20">
       <h3 class="font-display text-3xl text-center text-[#E8C9A0] mb-8">THE VIBE</h3>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="aspect-square rounded-lg overflow-hidden">
-          <img
-            src="/images/van-reed-inn-sign.jpg"
-            alt="The Van Reed Inn sign out front"
-            loading="lazy"
-            decoding="async"
-            class="w-full h-full object-cover img-zoom"
-          />
-        </div>
-        <div class="aspect-square rounded-lg overflow-hidden">
-          <img
-            src="/images/margarita.jpg"
-            alt="Fresh margarita on the bar"
-            loading="lazy"
-            decoding="async"
-            class="w-full h-full object-cover img-zoom"
-          />
-        </div>
-        <div class="aspect-square rounded-lg overflow-hidden">
-          <img
-            src="/images/burger-pickles.jpg"
-            alt="Cheeseburger with pickles and fresh-cut fries"
-            loading="lazy"
-            decoding="async"
-            class="w-full h-full object-cover img-zoom"
-          />
-        </div>
-        <div class="aspect-square rounded-lg overflow-hidden">
-          <img
-            src="/images/burger-platter-fries.jpg"
-            alt="Burger and fries platter on the table"
-            loading="lazy"
-            decoding="async"
-            class="w-full h-full object-cover img-zoom"
-          />
-        </div>
+        {galleryPhotos.map(photo => (
+          <div class="aspect-square rounded-lg overflow-hidden">
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              widths={[320, 640]}
+              sizes="(min-width: 768px) 25vw, 50vw"
+              format="webp"
+              quality={80}
+              class="w-full h-full object-cover img-zoom"
+            />
+          </div>
+        ))}
       </div>
     </div>
   </div>

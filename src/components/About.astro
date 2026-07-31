@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import vanReedInnBar from '../assets/images/van-reed-inn-bar.jpg';
+
 const stats = [
   { value: "1900s", label: "Roadhouse roots" },
   { value: "1940s", label: "At our current home" },
@@ -46,11 +49,13 @@ const stats = [
 
       <!-- Image -->
       <div class="rounded-2xl overflow-hidden border border-[#D4A574]/20">
-        <img
-          src="/images/van-reed-inn-bar.jpg"
+        <Image
+          src={vanReedInnBar}
           alt="Inside the Van Reed Inn bar"
-          loading="lazy"
-          decoding="async"
+          widths={[640, 1200]}
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          format="webp"
+          quality={80}
           class="w-full h-full object-cover img-zoom"
         />
       </div>
